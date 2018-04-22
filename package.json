@@ -1,0 +1,23 @@
+{
+  "name": "wallopsisland.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "d3": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wallopsisland/wallopsisland.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wallopsisland/wallopsisland.github.io/issues"
+  },
+  "homepage": "https://github.com/wallopsisland/wallopsisland.github.io#readme"
+}

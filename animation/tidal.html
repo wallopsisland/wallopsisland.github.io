@@ -4,6 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script>
+var d3 = require("d3");
+
 //Do not touch
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -18,10 +20,121 @@ function closeNav() {
 }
 //Do not touch
 
+var WIDTH = window.innerWidth * 2 / 3;
+var HEIGHT = window.innerHeight
+
+var translate = 'translate(' + (WIDTH / 5) + ',' + (HEIGHT / 2) + ')'
+
+var svg = d3.select("#sticky").append("svg")
+  .attr('width', WIDTH)
+  .attr('height', HEIGHT)
+
+var currentScrollTop = d3.select('#currentScrollTop')
+
+var hourLayer = svg.append('g')
+  .attr('transform', translate)
+var hourCicle = hourLayer.append("circle")
+      .attr("cx", 0)
+      .attr("cy", -100)
+      .attr("r", 15)
+    	.style("fill", "white")
+    	.style("stroke", "black")
+var earth = svg.append('circle')
+			.attr('transform', translate)
+			.attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", 30)
+    	.style("fill", "white")
+    	.style("stroke", "black")
+var sun = svg.append('circle')
+			.attr('transform', translate)
+			.attr("cx", 300)
+      .attr("cy", 0)
+      .attr("r", 20)
+    	.style("fill", "orange")
+    	.style("stroke", "yellow")
+
+
+var body = d3.select('body').node();
+var container = d3.select('#container')
+var content = d3.select('#content')
+
+var SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT
+var hourHandRotation = d3.scaleLinear()
+  .domain([0, SCROLL_LENGTH])
+  .range([0, 360])
+  .clamp(true)
+var scrollTop = 0
+var newScrollTop = 0
+
+container
+  .on("scroll.scroller", function() {
+    newScrollTop = container.node().scrollTop
+  });
+
+var setDimensions = function() {
+  WIDTH = window.innerWidth / 2
+  HEIGHT = window.innerHeight
+  SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT
+  hourHandRotation.domain([0, SCROLL_LENGTH])
+}
+
+var render = function() {
+  if (scrollTop !== newScrollTop) {
+    scrollTop = newScrollTop
+    var hourHandRotate = hourHandRotation(scrollTop)
+    hourLayer.attr('transform', translate + ' rotate(' + hourHandRotate + ')')
+    currentScrollTop.text(scrollTop)
+  }
+
+  window.requestAnimationFrame(render)
+}
+window.requestAnimationFrame(render)
+
+window.onresize = setDimensions
+
 </script>
 <style>
 body {
-    background: white;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: Helvetica, Arial;
+}
+
+#container {
+  position: relative;
+  z-index: 100;
+}
+
+#sticky {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  z-index: 50;
+}
+
+.panel {
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+}
+
+.panel p {
+  padding-right: 50%;
+}
+
+.panel:first-child {
+  padding-top: 35vh;
+}
+
+.panel:last-child {
+  padding-bottom: 45vh;
 }
 
 .content {
@@ -101,12 +214,57 @@ body {
 }
 </style>
 <link rel = "stylesheet" type = "css" href = "../styles.css" />
+<script src="https://d3js.org/d3.v5.js"></script>
 </head>
 <body>
  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-<div class="content">
-  <h1 class="title">ZAYU</h1>
-</div>
+ <div id="sticky">
+
+   </div>
+   <div id="container" style="height: 100vh; overflow: scroll">
+     <div id="content">
+       <div class="panel">
+         <h1>
+           Tide Animation
+         </h1>
+         <p>
+           by Zach Zhao
+         </p>
+       </div>
+       <div class="panel">
+         <h2>
+           Spring Tide
+         </h2>
+         <p>
+           This is the first stage of the tide. This tide occurs during the new moon.
+         </p>
+       </div>
+       <div class="panel">
+        <h2>
+           Spring Tide
+         </h2>
+         <p>
+           This is the first stage of the tide. This tide occurs during the new moon.
+         </p>
+       </div>
+       <div class="panel">
+          <h2>
+           Spring Tide
+         </h2>
+         <p>
+           This is the first stage of the tide. This tide occurs during the new moon.
+         </p>
+       </div>
+       <div class="panel">
+          <h2>
+           Spring Tide
+         </h2>
+         <p>
+           This is the first stage of the tide. This tide occurs during the new moon.
+         </p>
+       </div>
+     </div>
+   </div>
 
 <!-- DO NOT TOUCH -->
 <div id="mySidenav" class="sidenav">
