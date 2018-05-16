@@ -112,6 +112,11 @@ body {
     margin-left: 50px;
 }
 
+.home{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
 #main {
     transition: margin-left .5s;
     padding: 16px;
@@ -125,63 +130,62 @@ body {
 <link rel = "stylesheet" type = "css" href = "../styles.css" />
 </head>
 <body>
- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
  <div id="sticky">
-
    </div>
-   <div id="container" style="height: 100vh; overflow: scroll">
-     <div id="content">
-       <div class="panel">
-         <h1>
-           Tide Animation
-         </h1>
-         <p>
-           by Zach Zhao
-         </p>
-       </div>
-       <div class="panel">
-         <h2>
-           Spring Tide
-         </h2>
-         <p>
-           This is the first stage of the tide. This tide occurs during the new moon.
-         </p>
-       </div>
-       <div class="panel">
-        <h2>
-           Spring Tide
-         </h2>
-         <p>
-           This is the first stage of the tide. This tide occurs during the new moon.
-         </p>
-       </div>
-       <div class="panel">
+
+   <!-- DO NOT TOUCH -->
+   <div id="home" class="home">
+     <a href="../index.html"><img src="../return.png" width="30" height="30" title="Home" alt="Home"></a>
+   </div>
+   <!-- DO NOT TOUCH -->
+
+   <div class="content">
+
+     <div id="container" style="height: 100vh; overflow: scroll">
+       <div id="back">
+         <div class="panel">
+           <h1>
+             Tide Animation
+           </h1>
+           <p>
+             by Zach Zhao
+           </p>
+         </div>
+         <div class="panel">
+           <h2>
+             Spring Tide
+           </h2>
+           <p>
+             This is the first stage of the tide. This tide occurs during the new moon.
+           </p>
+         </div>
+         <div class="panel">
           <h2>
-           Spring Tide
-         </h2>
-         <p>
-           This is the first stage of the tide. This tide occurs during the new moon.
-         </p>
-       </div>
-       <div class="panel">
-          <h2>
-           Spring Tide
-         </h2>
-         <p>
-           This is the first stage of the tide. This tide occurs during the new moon.
-         </p>
+             Spring Tide
+           </h2>
+           <p>
+             This is the first stage of the tide. This tide occurs during the new moon.
+           </p>
+         </div>
+         <div class="panel">
+            <h2>
+             Spring Tide
+           </h2>
+           <p>
+             This is the first stage of the tide. This tide occurs during the new moon.
+           </p>
+         </div>
+         <div class="panel">
+            <h2>
+             Spring Tide
+           </h2>
+           <p>
+             This is the first stage of the tide. This tide occurs during the new moon.
+           </p>
+         </div>
        </div>
      </div>
    </div>
-
-<!-- DO NOT TOUCH -->
-<div id="mySidenav" class="sidenav">
-  <a class = "item" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a class = "item" href="../index.html">Home</a>
-  <a class = "item" href="../animation/animal.html">Animal Life</a>
-  <a class = "item" href="../animation/island.html">Barrier Island</a>
-</div>
-<!-- DO NOT TOUCH -->
 
 </body>
 <script>
@@ -238,7 +242,7 @@ var sun = svg.append('circle')
 
 var body = d3.select('body').node();
 var container = d3.select('#container')
-var content = d3.select('#content')
+var content = d3.select('#back')
 
 var SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT
 var hourHandRotation = d3.scaleLinear()

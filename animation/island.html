@@ -16,6 +16,35 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
+
+function startGame(){
+  alert("Hello! I am an alert box!");
+  var y = document.getElementById("game");
+  y.style.display = "none";
+}
+
+function make_base()
+{
+  base_image = new Image();
+  base_image.src = '../crab.jpg';
+  base_image.onload = function(){
+    context.drawImage(base_image, 0, 0);
+  }
+}
+
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    var y = document.getElementById("second");
+    var z = document.getElementById("game");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+    	  y.style.display = "none";
+        x.style.display = "none";
+        z.style.display = "block";
+        make_base();
+    }
+}
 //Do not touch
 
 </script>
@@ -56,6 +85,23 @@ body {
 	font-weight: 100;
 }
 
+.btn {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 50px;
+	font-variant: normal;
+	font-weight: 100;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.btn:hover {opacity: 0.6}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -90,6 +136,23 @@ body {
     margin-left: 50px;
 }
 
+.sliding{
+    position: sticky;
+    width: 50%;
+    bottom: 10px;
+    border: 3px solid #8AC007;
+}
+
+div.sticky {
+    position: sticky;
+    width: 50%;
+    bottom: 10px;
+    border: 3px solid #8AC007;
+}
+.spaceA{
+  height : 50px;
+}
+
 #main {
     transition: margin-left .5s;
     padding: 16px;
@@ -99,13 +162,48 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.secondTitle{
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 50px;
+	font-style: bold;
+	font-variant: normal;
+}
+canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #f1f1f1;
+    height: 75vh;
+    padding: 2em;
+    width: 100vw;
+}
 </style>
 <link rel = "stylesheet" type = "css" href = "../styles.css" />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body>
+<body onload="startGame()">
  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 <div class="content">
-  <h1 class="title">Beter</h1>
+
+  <div id="myDIV">
+  <h1 class="title">A Crab's Life</h1>
+  <p><font color="white">A<br>B<br>C<br>A</font></p>
+  <div id="homeImage">
+    <img src="../crab.jpg" alt="Da Blue Crab ;) Call me">
+  </div>
+  </div>
+  <div id ="second">
+    <p><font color="white">A<br>B<br>C<br>D<br>A<br>B<br>C<br>D<br>A</font></p>
+  <button class = "btn" onclick="myFunction()">Start</button>
+  </div>
+
+  <div id="game">
+    <h1 class="secondTitle">Day 1</h1>
+    <h3>My first Java applet says:</h3>
+    <applet code="asdfj;lsdkj;l" width="400" height="150"
+            alt="Error loading applet!">
+    </applet>
+  </div>
 </div>
 
 <!-- DO NOT TOUCH -->
