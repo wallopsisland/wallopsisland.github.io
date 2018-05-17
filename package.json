@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.4",
     "d3": "^5.1.0"
   },
   "devDependencies": {},

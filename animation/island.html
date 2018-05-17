@@ -18,7 +18,6 @@ function closeNav() {
 }
 
 function startGame(){
-  alert("Hello! I am an alert box!");
   var y = document.getElementById("game");
   y.style.display = "none";
 }
@@ -48,6 +47,8 @@ function myFunction() {
 //Do not touch
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+<script src="../animation/sketch.js"></script>
 <style>
 body {
     background: white;
@@ -184,26 +185,6 @@ canvas {
 <body onload="startGame()">
  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 <div class="content">
-
-  <div id="myDIV">
-  <h1 class="title">A Crab's Life</h1>
-  <p><font color="white">A<br>B<br>C<br>A</font></p>
-  <div id="homeImage">
-    <img src="../crab.jpg" alt="Da Blue Crab ;) Call me">
-  </div>
-  </div>
-  <div id ="second">
-    <p><font color="white">A<br>B<br>C<br>D<br>A<br>B<br>C<br>D<br>A</font></p>
-  <button class = "btn" onclick="myFunction()">Start</button>
-  </div>
-
-  <div id="game">
-    <h1 class="secondTitle">Day 1</h1>
-    <h3>My first Java applet says:</h3>
-    <applet code="asdfj;lsdkj;l" width="400" height="150"
-            alt="Error loading applet!">
-    </applet>
-  </div>
 </div>
 
 <!-- DO NOT TOUCH -->
