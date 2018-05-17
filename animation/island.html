@@ -16,42 +16,23 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
 }
-
-function startGame(){
-  var y = document.getElementById("game");
-  y.style.display = "none";
-}
-
-function make_base()
-{
-  base_image = new Image();
-  base_image.src = '../crab.jpg';
-  base_image.onload = function(){
-    context.drawImage(base_image, 0, 0);
-  }
-}
-
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    var y = document.getElementById("second");
-    var z = document.getElementById("game");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-    	  y.style.display = "none";
-        x.style.display = "none";
-        z.style.display = "block";
-        make_base();
-    }
-}
 //Do not touch
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
 <script src="../animation/sketch.js"></script>
+<script src="libraries/p5.js"></script>
 <style>
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+}
+
 body {
-    background: white;
+    vertical-align: middle;
 }
 
 .content {
