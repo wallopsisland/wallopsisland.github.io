@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+//Do not touch
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+//Do not touch
+
+</script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
+<link rel = "stylesheet" type = "css" href = "styles.css" />
+<style>
+body {
+    background: white;
+}
+
+.content {
+  text-align: center;
+  margin: auto;
+  background: white;
+  padding: 5px;
+}
+.title{
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 100px;
+	font-style: bold;
+	font-variant: normal;
+}
+.text{
+  text-align: center;
+  margin: auto;
+  width: 1000px;
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 30px;
+	font-variant: normal;
+	font-weight: 100;
+}
+.image{
+  width: 400px;
+}
+.item{
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 10px;
+	font-variant: normal;
+	font-weight: 100;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.name{
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 30px;
+	font-variant: normal;
+	font-weight: 100;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  .column {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+ <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<div class="content">
+  <h1 class="title">About this Project</h1>
+  <h3 class="text">In this project we mixed classical digital art -vector based- with interactive javascript graphic libraries such as P5.js and D3.js.
+All of the information used on the website was acquired from the <i>Chincoteague Bay Field Station School Program Fieldbook, Advanced Edition</i>.<br>
+  </h3>
+  <h1></h1>
+  <div class="row">
+  <div class="column">
+    <img class="phylaPhoto" src="gautom.gif" alt="Gautom" width="300"></img>
+    <p class="name">Gautom</p>
+  </div>
+  <div class="column">
+    <img class="phylaPhoto" src="peter.gif" alt="Peter" width="300"></img>
+    <p class="name">Peter</p>
+  </div>
+  <div class="column">
+    <img class="phylaPhoto" src="zach.gif" alt="Zach" width="300"></img>
+    <p class="name">Zach</p>
+  </div>
+</div>
+</div>
+
+<!-- DO NOT TOUCH -->
+<div id="mySidenav" class="sidenav">
+  <a class = "item" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class = "item" href="index.html">Home</a>
+  <a class = "item" href="animation/tidal.html">Tidal Waves</a>
+  <a class = "item" href="animation/animal.html">Animal Life</a>
+  <a class = "item" href="animation/island.html">Barrier Island</a>
+</div>
+<!-- DO NOT TOUCH -->
+
+</body>
+</html>
