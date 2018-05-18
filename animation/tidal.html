@@ -12,7 +12,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  font-family: Helvetica, Arial;
+  color: #333333;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 #container {
   position: relative;
@@ -46,6 +47,29 @@ body {
   margin: auto;
   background: white;
   padding: 5px;
+}
+.h2{
+
+	font-size: 80px;
+	font-variant: normal;
+	font-weight: 100;
+  font-style: italic;
+}
+.h1{
+
+	font-size: 120px;
+	font-variant: normal;
+	font-weight: 100;
+  font-style: italic;
+}
+.p{
+  .h2{
+
+  	font-size: 50px;
+  	font-variant: normal;
+  	font-weight: 100;
+    font-style: italic;
+  }
 }
 /*
 
@@ -278,7 +302,7 @@ var path = svg.append("g")
           return amp * Math.sin(freq * (e + speed * t));
       });
     });
-    
+
 d3.timer(function() {
     if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
