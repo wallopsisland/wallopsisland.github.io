@@ -2,13 +2,14 @@ let kitten;
 let add;
 
 function preload() {
-  kitten = loadImage('../animation/kittens/kitten.jpg');
+  kitten = loadImage('../animation/Design.jpeg');
 }
 
 function setup() {
   //createCanvas(1000, 1000, WEBGL);
   add = 0;
   createCanvas(window.innerWidth, 800, WEBGL);
+  scale(0.25);
 }
 
 function draw() {
@@ -23,6 +24,6 @@ function draw() {
     rotateY(add);
   }
   console.log(add);
-  cylinder(500, 100);
+  cylinder(1303/3.4, 1024/3.4);
   texture(kitten);
 }
