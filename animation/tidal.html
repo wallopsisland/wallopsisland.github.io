@@ -236,8 +236,8 @@ var sun = svg.append('circle')
 			.attr("cx", 300)
       .attr("cy", 0)
       .attr("r", 20)
-    	.style("fill", "orange")
-    	.style("stroke", "yellow")
+    	.style("fill", "white")
+    	.style("stroke", "orange")
 
 
 var body = d3.select('body').node();
@@ -264,19 +264,60 @@ var setDimensions = function() {
   hourHandRotation.domain([0, SCROLL_LENGTH])
 }
 
-var render = function() {
-  if (scrollTop !== newScrollTop) {
+//var render = function() {
+//  if (scrollTop !== newScrollTop) {
+//    scrollTop = newScrollTop
+//    var hourHandRotate = hourHandRotation(scrollTop)
+//    hourLayer.attr('transform', translate + ' rotate(' + hourHandRotate + ')')
+//    currentScrollTop.text(scrollTop)
+//  }
+//
+//  window.requestAnimationFrame(render)
+//}
+//window.requestAnimationFrame(render)
+
+window.onresize = setDimensions
+    
+width = +svg.attr("width"),
+    height = +svg.attr("height"),
+    angles = d3.range(0, 4 * Math.PI, Math.PI / 200);
+
+    
+    
+var amp = 30;
+var freq = 1;
+var speed = 0.01;
+var path = svg.append("g")
+    .attr("transform", "translate(" + width / 4 + "," +4 * height / 5 + ")")
+    .attr("fill", "none")
+    .attr("stroke-width", 10)
+    .attr("stroke-linejoin", "round")
+  .selectAll("path")
+  .data(["cyan"])
+  .enter().append("path")
+    .attr("stroke", function(d) { return d; })
+    .style("mix-blend-mode", "darken")
+    .datum(function(d, i) {
+      return d3.line().curve(d3.curveLinear).x(function(e){return e * 20;}).y(function(e){
+          var t = d3.now() / 10;
+          return amp * Math.sin(freq * (e + speed * t));
+      });
+    });
+
+d3.timer(function() {
+    if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
     var hourHandRotate = hourHandRotation(scrollTop)
     hourLayer.attr('transform', translate + ' rotate(' + hourHandRotate + ')')
     currentScrollTop.text(scrollTop)
   }
-
-  window.requestAnimationFrame(render)
-}
-window.requestAnimationFrame(render)
-
-window.onresize = setDimensions
+    var angleRot = hourHandRotation(scrollTop);
+    console.log(angleRot);
+    amp = - 20 * Math.cos(2 * (angleRot * Math.PI / 180)) + 40;
+    path.attr("d", function(d) {
+    return d(angles);
+  });
+});
 
 </script>
 </html>
