@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://d3js.org/d3.v5.js"></script>
+<link rel = "stylesheet" type = "css" href = "../styles.css" />
 <style>
 body {
   margin: 0;
@@ -25,7 +26,7 @@ body {
   z-index: 50;
 }
 .panel {
-  width: 100%;
+  width: 80%;
   padding-left: 20px;
   padding-top: 25vh;
   padding-bottom: 25vh;
@@ -39,12 +40,15 @@ body {
 .panel:last-child {
   padding-bottom: 45vh;
 }
+
 .content {
-  text-align: center;
+  text-align: left;
   margin: auto;
   background: white;
   padding: 5px;
 }
+/*
+
 .title{
   color: #333333;
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
@@ -112,8 +116,8 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+    */
 </style>
-<link rel = "stylesheet" type = "css" href = "../styles.css" />
 </head>
 <body>
  <div id="sticky">
@@ -136,35 +140,38 @@ body {
          </div>
          <div class="panel">
            <h2>
-             Spring Tide
+             First Quarter
            </h2>
            <p>
-             This is the first stage of the tide. This tide occurs during the new moon.
+             During this phase of the moon, the approximately perpendicular angle between the forces of the Sun and Moon cause a neap tide. Neap tides have the smallest amplitudes, having the highest lows and lowest highs, because the forces of the moon and sun are not aligned. Tides, regardless of the relative positions of the sun and moon, occur twice every day, separated by 12 hours.
            </p>
          </div>
          <div class="panel">
           <h2>
-             Spring Tide
+             Full Moon
            </h2>
            <p>
-             This is the first stage of the tide. This tide occurs during the new moon.
+             Transitioning from the first quarter, the full moon produces the largest tides, the spring tide. In this phase, the forces between the moon and sun are aligned. The alignment of forces creates the largest differences, that is, the highest high tides, and the lowest low tides..
            </p>
          </div>
          <div class="panel">
             <h2>
-             Spring Tide
+             Last Quarter
            </h2>
            <p>
-             This is the first stage of the tide. This tide occurs during the new moon.
+             This phase is like the first quarter, where the moon and sun are perpendicular. This phase creates another neap tide.
            </p>
          </div>
          <div class="panel">
             <h2>
-             Spring Tide
+                New Moon
            </h2>
            <p>
-             This is the first stage of the tide. This tide occurs during the new moon.
+             And … This concludes the presentation. Quiz time?
+What tide is this?
+
            </p>
+             <p>(It's a Spring Tide)</p>
          </div>
        </div>
      </div>
@@ -271,10 +278,11 @@ var path = svg.append("g")
           return amp * Math.sin(freq * (e + speed * t));
       });
     });
+    
 d3.timer(function() {
     if (scrollTop !== newScrollTop) {
     scrollTop = newScrollTop
-    var hourHandRotate = hourHandRotation(scrollTop)
+    var hourHandRotate = -hourHandRotation(scrollTop)
     hourLayer.attr('transform', translate + ' rotate(' + hourHandRotate + ')')
     currentScrollTop.text(scrollTop)
   }
