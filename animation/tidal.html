@@ -15,6 +15,11 @@ body {
   color: #333333;
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
+    .card {
+        box-shadow: 0px 0px 40px -5px rgba(0,0,0,0.3);
+        border-radius: 5px;
+        margin: 20px;
+    }
 #container {
   position: relative;
   z-index: 100;
@@ -33,7 +38,7 @@ body {
   padding-bottom: 25vh;
 }
 .panel p {
-  padding-right: 50%;
+  //padding-right: 50%;
 }
 .panel:first-child {
   padding-top: 35vh;
@@ -144,8 +149,6 @@ body {
 </style>
 </head>
 <body>
- <div id="sticky">
-   </div>
 
    <!-- DO NOT TOUCH -->
    <div id="home" class="home">
@@ -154,13 +157,13 @@ body {
    <!-- DO NOT TOUCH -->
 
    <div class="content">
-
      <div id="container" style="height: 100vh; overflow: scroll">
        <div id="back">
          <div class="panel">
            <h1>
              Tide Animation
            </h1>
+             <p>A Interactive Exploration of Tides</p>
          </div>
          <div class="panel">
            <h2>
@@ -200,7 +203,8 @@ What tide is this?
        </div>
      </div>
    </div>
-
+     <div id="sticky">
+   </div>
 </body>
 <script>
 //var d3 = require("d3");
@@ -216,16 +220,22 @@ function closeNav() {
     document.body.style.backgroundColor = "white";
 }
 //Do not touch
+    
+    
+//___________________________________________________________
 var WIDTH = window.innerWidth * 2 / 3;
 var HEIGHT = window.innerHeight
 var translate = 'translate(' + (WIDTH / 5) + ',' + (HEIGHT / 2) + ')'
 var svg = d3.select("#sticky").append("svg")
   .attr('width', WIDTH)
   .attr('height', HEIGHT)
+
 var currentScrollTop = d3.select('#currentScrollTop')
 var hourLayer = svg.append('g')
   .attr('transform', translate)
-var hourCicle = hourLayer.append("circle")
+
+//Circles____________________________________________________
+var hourCircle = hourLayer.append("circle")
       .attr("cx", 0)
       .attr("cy", -100)
       .attr("r", 15)
@@ -245,6 +255,9 @@ var sun = svg.append('circle')
       .attr("r", 20)
     	.style("fill", "white")
     	.style("stroke", "orange")
+//______________________________________________________________
+
+//_____________________________________________________
 var body = d3.select('body').node();
 var container = d3.select('#container')
 var content = d3.select('#back')
@@ -263,26 +276,15 @@ var setDimensions = function() {
   WIDTH = window.innerWidth / 2
   HEIGHT = window.innerHeight
   SCROLL_LENGTH = content.node().getBoundingClientRect().height - HEIGHT
+console.log(SCROLL_LENGTH);
   hourHandRotation.domain([0, SCROLL_LENGTH])
 }
-//var render = function() {
-//  if (scrollTop !== newScrollTop) {
-//    scrollTop = newScrollTop
-//    var hourHandRotate = hourHandRotation(scrollTop)
-//    hourLayer.attr('transform', translate + ' rotate(' + hourHandRotate + ')')
-//    currentScrollTop.text(scrollTop)
-//  }
-//
-//  window.requestAnimationFrame(render)
-//}
-//window.requestAnimationFrame(render)
+//______________________________________________________
 window.onresize = setDimensions
-
+    
 width = +svg.attr("width"),
     height = +svg.attr("height"),
     angles = d3.range(0, 4 * Math.PI, Math.PI / 200);
-
-
 var amp = 30;
 var freq = 1;
 var speed = 0.01;
